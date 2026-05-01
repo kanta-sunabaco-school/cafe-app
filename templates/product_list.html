@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>商品一覧</title>
+</head>
+
+<body>
+
+<h1>商品一覧</h1>
+
+<p>
+<a href="/products/new">
+商品を登録する
+</a>
+</p>
+
+<p>
+<a href="/units">
+単位管理
+</a>
+</p>
+
+<p>
+<a href="/stock/logs">
+入出庫履歴を見る
+</a>
+</p>
+
+<table border="1">
+
+<tr>
+<th>ID</th>
+<th>商品名</th>
+<th>在庫</th>
+<th>単位</th>
+<th>操作</th>
+</tr>
+
+{% for product in products %}
+<tr>
+
+<td>{{ product.id }}</td>
+
+<td>{{ product.name }}</td>
+
+<td>{{ product.stock }}</td>
+<td>{{ product.unit_name }}</td>
+
+
+<td>
+
+<a href="/stock/new/{{ product.id }}">
+入出庫
+</a>
+
+|
+
+<a href="/products/edit/{{ product.id }}">
+編集
+</a>
+
+|
+
+<a href="/products/delete/{{ product.id }}"
+   onclick="return confirm('削除しますか？')">
+削除
+</a>
+
+</td>
+
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>

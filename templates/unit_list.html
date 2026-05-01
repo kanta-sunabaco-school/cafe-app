@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>単位一覧</title>
+</head>
+
+<body>
+
+<h1>単位一覧</h1>
+
+<p>
+<a href="/units/new">
+単位を追加する
+</a>
+</p>
+
+<p>
+<a href="/products">
+商品一覧へ
+</a>
+</p>
+
+<table border="1">
+
+<tr>
+<th>ID</th>
+<th>単位名</th>
+</tr>
+
+{% for unit in units %}
+<tr>
+
+<td>{{ unit.id }}</td>
+
+<td>{{ unit.name }}</td>
+
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>

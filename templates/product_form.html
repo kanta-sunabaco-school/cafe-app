@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>商品登録</title>
+</head>
+
+<body>
+
+<h1>商品登録</h1>
+
+<form action="/products/create" method="post">
+
+<p>
+商品名：
+<input type="text" name="name" required>
+</p>
+
+<p>
+単位：
+<select name="unit_id">
+
+{% for unit in units %}
+<option value="{{ unit.id }}">
+{{ unit.name }}
+</option>
+{% endfor %}
+
+</select>
+</p>
+
+<p>
+<button type="submit">
+登録
+</button>
+</p>
+
+</form>
+
+<p>
+<a href="/products">
+商品一覧へ
+</a>
+</p>
+
+</body>
+</html>

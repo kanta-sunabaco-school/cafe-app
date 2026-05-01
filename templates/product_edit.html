@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>商品編集</title>
+</head>
+
+<body>
+
+<h1>商品編集</h1>
+
+<form action="/products/update/{{ product.id }}" method="post">
+
+<p>
+商品名：
+<input type="text"
+       name="name"
+       value="{{ product.name }}"
+       required>
+</p>
+
+<p>
+単位：
+<select name="unit_id">
+
+{% for unit in units %}
+
+<option value="{{ unit.id }}"
+{% if unit.id == product.unit_id %}
+selected
+{% endif %}
+>
+{{ unit.name }}
+</option>
+
+{% endfor %}
+
+</select>
+</p>
+
+<p>
+<button type="submit">
+更新
+</button>
+</p>
+
+</form>
+
+<p>
+<a href="/products">
+一覧へ戻る
+</a>
+</p>
+
+</body>
+</html>
